@@ -17,7 +17,7 @@ describe('Testes da função getOpeningHours', () => {
   });
   it('', () => {
     expect(() => {
-      getOpeningHours('Friday', '009:00-ZM');
+      getOpeningHours('Friday', '09:00-ZM');
     }).toThrowError(new Error('The abbreviation must be \'AM\' or \'PM\''));
   });
   it('', () => {
