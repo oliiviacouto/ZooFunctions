@@ -1,14 +1,29 @@
 const getOpeningHours = require('../src/getOpeningHours');
 
+const fechado = 'The zoo is closed';
+const aberto = 'The zoo is open';
+
 describe('Testes da função getOpeningHours', () => {
   it('', () => {
-    expect(getOpeningHours('Monday', '09:00-AM')).toBe('The zoo is closed');
+    expect(getOpeningHours('Monday', '09:00-AM')).toBe(fechado);
   });
   it('', () => {
-    expect(getOpeningHours('Tuesday', '09:00-AM')).toBe('The zoo is open');
+    expect(getOpeningHours('Tuesday', '09:00-AM')).toBe(aberto);
   });
   it('', () => {
-    expect(getOpeningHours('Wednesday', '09:00-PM')).toBe('The zoo is closed');
+    expect(getOpeningHours('Wednesday', '09:00-PM')).toBe(fechado);
+  });
+  it('', () => {
+    expect(getOpeningHours('Friday', '09:00-AM')).toBe(fechado);
+  });
+  it('', () => {
+    expect(getOpeningHours('Saturday', '09:00-AM')).toBe(aberto);
+  });
+  it('', () => {
+    expect(getOpeningHours('Sunday', '09:00-AM')).toBe(aberto);
+  });
+  it('', () => {
+    expect(getOpeningHours('Thuersday', '09:00-AM')).toBe(fechado);
   });
   it('', () => {
     expect(() => {
@@ -41,3 +56,10 @@ describe('Testes da função getOpeningHours', () => {
     }).toThrowError(new Error('The minutes must be between 0 and 59'));
   });
 });
+
+// 54 if (empty(day, dataHour)) return hours;
+//
+// const fix12 = (hour, open, close) => ({
+// 43  h: (hour === 12) ? 0 : hour,
+// 44  o: (open === 12) ? 0 : open,
+// 45  c: (close === 12) ? 0 : close,
